@@ -1,3 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html, body {
   min-width: 290px;
   color: #4d4e53;
@@ -5,9 +16,11 @@ html, body {
   font-family: 'Open Sans', Arial, sans-serif;
   line-height: 1.5;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 #navbar {
+  display: flex;
   position: fixed;
   min-width: 290px;
   top: 0px;

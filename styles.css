@@ -14,7 +14,6 @@ html, body {
   color: #4d4e53;
   background-color: #ffffff;
   font-family: 'Open Sans', Arial, sans-serif;
-  font-size: 62.5%;
   line-height: 1.5;
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -37,23 +36,32 @@ html, body {
     font-size: 55%;
   }
 }
+/*
 #navbar {
   display: flex;
-  position: fixed;
+  position: inherit;
   min-width: 290px;
-  top: 0px;
-  left: 0px;
-  width: 300px;
+  width: auto;
   height: 100%;
   border-right: solid;
   border-color: rgba(0, 22, 22, 0.4);
+}*/
+#navbar {
+    display: flex;          /* Aligns logo and menu items horizontally */
+    align-items: center;    /* Vertically centers everything in the bar */
+    flex-direction: row;
+    justify-content: space-between; 
+    padding: 10px;
+    background-color: #f6f6f6;
+    border-bottom: 2px solid #ccc;
+    
 }
 
 header {
   color: black;
   margin: 10px;
   text-align: center;
-  font-size: 1.8em;
+  font-size: 1.2em;
   font-weight: thin;
 }
 
@@ -78,12 +86,23 @@ header {
   color: #206836;
 }
 
-#name header{
-    background-color: rgb(65, 107, 231);
-    color: beige;
-    margin: 10px;
-    text-align: center;
+#navbar header{
+  margin: 0;
+  display: block; /* Ensures they take up their own line */
+  
+}
+.logo-group {
+    display: flex;
+    flex-direction: column;   /* STACKS LOGO ON TOP, NAME UNDERNEATH */
+    align-items: flex-start;
+    float: none;
+}
+#name{
+    margin-top: 5px; /* Adds the small gap you circled in red */
+    font-size: 1.6em;
     font-weight: bold;
+    color: #004d40; /* Adjust to match your existing brand colors */
+    white-space: nowrap;      /* Prevents your name from breaking into 2 lines */
 }
 
 #main-doc header {
@@ -92,33 +111,51 @@ header {
 }
 
 #navbar ul {
-  height: 88%;
+  /* height: 88%;
   padding: 0;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: hidden; */
+  display: flex;            /* KEEPS BUTTONS ON THE SIDE */
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
 
 #navbar li {
   color: #4d4e53;
   border-top: 1px solid;
   list-style: none;
-  position: relative;
+  position:static;
   width: 100%;
+  margin: 0 5px;          /* Horizontal spacing between buttons */
 }
 
+
 #navbar a {
-  display: block;
-  padding: 10px 30px;
-  color: #4d4e53;
-  text-decoration: none;
-  cursor: pointer;
+    display: block;
+    padding: 10px 25px;
+    background-color: #023609;
+    border: 1px solid #013815;
+    border-radius: 4px;     /* Rounded corners for the button look */
+    text-decoration: none;
+    color: #ebeb19;
+    font-size: 1.4em;
+    transition: background-color 0.3s;
+}
+
+#navbar a:hover {
+    background-color: #b0f192; /* Subtle color change on hover */
+    border-color: #bbb;
+    color: #5c5c03;
 }
 
 #main-doc {
-  position: absolute;
-  margin-left: 310px;
-  padding: 20px;
-  margin-bottom: 110px;
+  position: relative;
+  margin-left: 0;
+  margin-top: 10px;
+  
 }
 
 section article {
@@ -150,12 +187,12 @@ code {
   #navbar ul {
     border: 1px solid;
     margin: 0 1rem;
+    flex-wrap: wrap; /* Allows buttons to wrap to a new line on small screens */
   }
 
   #navbar {
     background-color: white;
     justify-content: center;
-    position: absolute;
     top: 0;
     padding: 0;
     margin: 0;
@@ -164,6 +201,8 @@ code {
     border: none;
     z-index: 1;
     border-bottom: 2px solid;
+    position: relative; /* Pushes content down so it doesn't block text */
+    flex-direction: column; /* On phones, stack everything for better fit */
   }
 
   #main-doc {

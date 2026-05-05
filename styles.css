@@ -182,35 +182,62 @@ code {
   border-radius: 5px;
 }
 
-@media only screen and (max-width: 28.75em) {
-  /* For mobile phones: */
-  #navbar ul {
-    border: 1px solid;
-    margin: 0 1rem;
-    flex-wrap: wrap; /* Allows buttons to wrap to a new line on small screens */
-  }
+@media only screen and (max-width: 48em) {
+    /* 1. Force the body to stay within the viewport bounds */
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden; /* Prevents the horizontal wobble */
+    }
 
-  #navbar {
-    background-color: white;
-    justify-content: center;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    max-height: 275px;
-    border: none;
-    z-index: 1;
-    border-bottom: 2px solid;
-    position: relative; /* Pushes content down so it doesn't block text */
-    flex-direction: column; /* On phones, stack everything for better fit */
-  }
+    /* 2. Turn the navbar into a solid top box in the natural page flow */
+    #navbar {
+        position: relative !important;
+        width: 100% !important;
+        max-height: none !important;
+        background-color: #0b3d1a !important; /* Matches your dark green theme */
+        padding: 10px 0 !important;
+        margin: 0 !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
 
-  #main-doc {
-    position: relative;
-    margin-left: 0px;
-    margin-top: 270px;
-  }
+    /* 3. Make the menu items stack cleanly inside the dark green box */
+    #navbar ul {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+
+    #navbar li {
+        width: 100% !important;
+        text-align: center !important;
+        margin: 5px 0 !important;
+    }
+
+    #navbar a {
+        display: block !important;
+        padding: 10px !important;
+        color: #ffcc00 !important; /* High contrast yellow text for readability */
+        text-decoration: none !important;
+        font-weight: bold !important;
+    }
+
+    /* 4. Reset the main content container so it sits neatly below the menu */
+    #main-doc, #layout-content, td#layout-content {
+        display: block !important;
+        margin-top: 15px !important; /* Removes the massive 270px ghost gap */
+        padding: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
 }
+
 
 @media only screen and (max-width: 400px) {
   #main-doc {

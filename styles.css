@@ -1,12 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -14,57 +9,118 @@ html, body {
   color: #4d4e53;
   background-color: #ffffff;
   font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.5;
   scroll-behavior: smooth;
-  box-sizing: border-box;
 }
 
-@media (max-width: 75em) {
-  html {
-    font-size: 60%;
-  }
-}
-
-@media (max-width: 61.25em) {
-  html {
-    font-size: 58%;
-  }
-}
-
-@media (max-width: 28.75em) {
-  html {
-    font-size: 55%;
-  }
-}
-/*
+/* NAVBAR */
 #navbar {
   display: flex;
-  position: inherit;
-  min-width: 290px;
-  width: auto;
-  height: 100%;
-  border-right: solid;
-  border-color: rgba(0, 22, 22, 0.4);
-}*/
-#navbar {
-    display: flex;          /* Aligns logo and menu items horizontally */
-    align-items: center;    /* Vertically centers everything in the bar */
-    flex-direction: row;
-    justify-content: space-between; 
-    padding: 10px;
-    background-color: #f6f6f6;
-    border-bottom: 2px solid #ccc;
-    
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f6f6f6;
+  border-bottom: 2px solid #ccc;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-header {
-  color: black;
-  margin: 10px;
-  text-align: center;
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#navbar header { margin: 0; display: block; }
+header { color: black; text-align: center; font-size: 1.2em; }
+
+#name {
+  margin-top: 4px;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #004d40;
+  white-space: nowrap;
+}
+
+#navbar ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 6px;
+}
+
+#navbar li { list-style: none; border: none; }
+
+#navbar a {
+  display: block;
+  padding: 8px 18px;
+  background-color: #023609;
+  border: 1px solid #013815;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #ebeb19;
+  font-size: 1em;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+#navbar a:hover {
+  background-color: #b0f192;
+  border-color: #bbb;
+  color: #5c5c03;
+}
+
+/* MAIN CONTENT */
+#main-doc {
+  margin: 20px auto;
+  max-width: 960px;
+  padding: 0 20px;
+}
+
+#toptitle h1 {
+  font-size: 1.8em;
+  margin-bottom: 16px;
+  color: #222;
+}
+
+/* INTRO TABLE */
+table.imgtable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table.imgtable td { vertical-align: top; padding: 10px; }
+table.imgtable td:first-child { width: auto; }
+table.imgtable td:last-child { width: 210px; text-align: center; }
+table.imgtable img {
+  border-radius: 50%;
+  width: 180px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* BIO */
+section article { color: #4d4e53; margin: 15px 0; font-size: 0.96em; }
+section article p { margin-bottom: 10px; }
+section article h2 {
+  margin: 16px 0 8px;
   font-size: 1.2em;
-  font-weight: thin;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
 }
+section li { margin: 8px 0 0 20px; }
 
+/* SOCIAL LINKS */
+.imgtable td p { margin-bottom: 6px; }
+.imgtable td a { color: #023609; text-decoration: none; }
+.imgtable td a:hover { text-decoration: underline; }
+
+/* UTILITY */
 .date-button {
   display: inline-block;
   padding: 2px 8px;
@@ -73,188 +129,36 @@ header {
   border-radius: 4px;
   font-size: 0.9em;
   color: #333;
-  cursor: default;
-}
-
-.my-activities h2{
-  color: #568564;
-  font-size: large;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-#activity-2 h2{
-  color: #206836;
-}
-
-#navbar header{
-  margin: 0;
-  display: block; /* Ensures they take up their own line */
-  
-}
-.logo-group {
-    display: flex;
-    flex-direction: column;   /* STACKS LOGO ON TOP, NAME UNDERNEATH */
-    align-items: flex-start;
-    float: none;
-}
-#name{
-    margin-top: 5px; /* Adds the small gap you circled in red */
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #004d40; /* Adjust to match your existing brand colors */
-    white-space: nowrap;      /* Prevents your name from breaking into 2 lines */
-}
-
-#main-doc header {
-  text-align: left;
-  margin: 0px;
-}
-
-#navbar ul {
-  /* height: 88%;
-  padding: 0;
-  overflow-y: auto;
-  overflow-x: hidden; */
-  display: flex;            /* KEEPS BUTTONS ON THE SIDE */
-  flex-direction: row;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-
-#navbar li {
-  color: #4d4e53;
-  border-top: 1px solid;
-  list-style: none;
-  position:static;
-  width: 100%;
-  margin: 0 5px;          /* Horizontal spacing between buttons */
-}
-
-
-#navbar a {
-    display: block;
-    padding: 10px 25px;
-    background-color: #023609;
-    border: 1px solid #013815;
-    border-radius: 4px;     /* Rounded corners for the button look */
-    text-decoration: none;
-    color: #ebeb19;
-    font-size: 1.4em;
-    transition: background-color 0.3s;
-}
-
-#navbar a:hover {
-    background-color: #b0f192; /* Subtle color change on hover */
-    border-color: #bbb;
-    color: #5c5c03;
-}
-
-#main-doc {
-  position: relative;
-  margin-left: 0;
-  margin-top: 10px;
-  
-}
-
-section article {
-  color: #4d4e53;
-  margin: 15px;
-  font-size: 0.96em;
-}
-
-section li {
-  margin: 15px 0px 0px 20px;
 }
 
 code {
   display: block;
   text-align: left;
   white-space: pre-line;
-  position: relative;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 2;
   background-color: #f7f7f7;
   padding: 15px;
   margin: 10px;
   border-radius: 5px;
+  line-height: 2;
 }
 
-@media only screen and (max-width: 48em) {
-    /* 1. Force the body to stay within the viewport bounds */
-    body {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden; /* Prevents the horizontal wobble */
-    }
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #navbar { flex-direction: column; align-items: flex-start; }
+  #navbar ul { flex-direction: column; width: 100%; }
+  #navbar li { width: 100%; }
+  #navbar a { text-align: center; padding: 10px; }
 
-    /* 2. Turn the navbar into a solid top box in the natural page flow */
-    #navbar {
-        position: relative !important;
-        width: 100% !important;
-        max-height: none !important;
-        background-color: #0b3d1a !important; /* Matches your dark green theme */
-        padding: 10px 0 !important;
-        margin: 0 !important;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    /* 3. Make the menu items stack cleanly inside the dark green box */
-    #navbar ul {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        list-style: none !important;
-    }
-
-    #navbar li {
-        width: 100% !important;
-        text-align: center !important;
-        margin: 5px 0 !important;
-    }
-
-    #navbar a {
-        display: block !important;
-        padding: 10px !important;
-        color: #ffcc00 !important; /* High contrast yellow text for readability */
-        text-decoration: none !important;
-        font-weight: bold !important;
-    }
-
-    /* 4. Reset the main content container so it sits neatly below the menu */
-    #main-doc, #layout-content, td#layout-content {
-        display: block !important;
-        margin-top: 15px !important; /* Removes the massive 270px ghost gap */
-        padding: 15px !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-}
-
-
-@media only screen and (max-width: 400px) {
-  #main-doc {
-    margin-left: -10px;
+  table.imgtable,
+  table.imgtable tbody,
+  table.imgtable tr,
+  table.imgtable td {
+    display: block;
+    width: 100% !important;
   }
-
-  code {
-    margin-left: -20px;
-    width: 100%;
-    padding: 15px;
-    padding-left: 10px;
-    padding-right: 45px;
-    min-width: 233px;
-  }
+  table.imgtable td:last-child { text-align: center; margin-top: 16px; }
 }
 
-
-
-
-
+@media (max-width: 400px) {
+  #main-doc { padding: 0 10px; }
+}
